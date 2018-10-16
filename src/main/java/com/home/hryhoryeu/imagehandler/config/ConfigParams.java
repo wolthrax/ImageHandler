@@ -8,7 +8,15 @@ public interface ConfigParams {
 
         Integer FULL_SIZE_WIDTH = 1000;
         Integer FULL_SIZE_HEIGHT = 600;
+    }
 
+    interface Value {
+        Integer MAX = 255;
+        Integer MIN = 0;
+    }
+
+    interface Position {
+        Integer START = 0;
     }
 
     interface Style {

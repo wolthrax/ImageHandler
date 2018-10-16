@@ -5,6 +5,4 @@ import javafx.scene.paint.Color;
 
 public interface IPixelManager {
 
-    PixelData readPixel(Color color, int x, int y);
-
 }

@@ -8,13 +8,17 @@ public class PixelData {
     private int G;
     private int B;
     private int brightness;
+    private int hue;
+    private int saturation;
 
-    public PixelData(int positionX, int positionY, int r, int g, int b, int brightness) {
+    public PixelData(int positionX, int positionY, int r, int g, int b, int hue, int saturation, int brightness) {
         this.positionX = positionX;
         this.positionY = positionY;
-        R = r;
-        G = g;
-        B = b;
+        this.R = r;
+        this.G = g;
+        this.B = b;
+        this.hue = hue;
+        this.saturation = saturation;
         this.brightness = brightness;
     }
 
@@ -58,23 +62,27 @@ public class PixelData {
         B = b;
     }
 
+    public int getHue() {
+        return hue;
+    }
+
+    public void setHue(int hue) {
+        this.hue = hue;
+    }
+
+    public int getSaturation() {
+        return saturation;
+    }
+
+    public void setSaturation(int saturation) {
+        this.saturation = saturation;
+    }
+
     public int getBrightness() {
         return brightness;
     }
 
     public void setBrightness(int brightness) {
         this.brightness = brightness;
-    }
-
-    @Override
-    public String toString() {
-        return "PixelData{" +
-                "positionX=" + positionX +
-                ", positionY=" + positionY +
-                ", R=" + R +
-                ", G=" + G +
-                ", B=" + B +
-                ", brightness=" + brightness +
-                '}';
     }
 }

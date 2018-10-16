@@ -23,13 +23,13 @@ public class BarChartManagerImpl implements IBarChartManager {
     @Override
     public void showBarChartSourceImage() {
         BarChart barChart = new BarChart();
-        barChart.showBarChart(buildBarChartMap(imageData.getSourceImagePixelData()), Names.BarChart.SOURCE_TITLE);
+        barChart.showBarChart(buildBarChartMap(imageData.getSourceImagePixelMap()), Names.BarChart.SOURCE_TITLE);
     }
 
     @Override
     public void showBarChartChangedImage() {
         BarChart barChart = new BarChart();
-        barChart.showBarChart(buildBarChartMap(imageData.getChangedImagePixelData()), Names.BarChart.CHANGED_TITLE);
+        barChart.showBarChart(buildBarChartMap(imageData.getChangedImagePixelMap()), Names.BarChart.CHANGED_TITLE);
     }
 
 

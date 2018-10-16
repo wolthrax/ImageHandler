@@ -14,6 +14,4 @@ public interface IImageManager {
     void showSourceFullSizeImage();
     void showChangedFullSizeImage();
 
-    // Utils
-    int getMaxBrightness();
 }

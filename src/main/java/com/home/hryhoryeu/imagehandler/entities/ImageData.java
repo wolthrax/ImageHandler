@@ -1,5 +1,6 @@
 package com.home.hryhoryeu.imagehandler.entities;
 
+import com.home.hryhoryeu.imagehandler.config.ConfigParams;
 import javafx.scene.image.Image;
 
 public class ImageData {
@@ -8,8 +9,17 @@ public class ImageData {
     private Image sourceImage;
     private Image changedImage;
 
-    private PixelData[][] sourceImagePixelData;
-    private PixelData[][] changedImagePixelData;
+    private PixelData[][] sourceImagePixelMap;
+    private PixelData[][] changedImagePixelMap;
+
+    private int maxBrightness = ConfigParams.Value.MIN;
+    private int minBrightness = ConfigParams.Value.MAX;
+
+    private int sourceImageWidth;
+    private int sourceImageHeight;
+
+    private int changedImageWidth;
+    private int changedImageHeight;
 
     private ImageData() {
 
@@ -37,19 +47,67 @@ public class ImageData {
         this.changedImage = changedImage;
     }
 
-    public PixelData[][] getSourceImagePixelData() {
-        return sourceImagePixelData;
+    public PixelData[][] getSourceImagePixelMap() {
+        return sourceImagePixelMap;
     }
 
-    public void setSourceImagePixelData(PixelData[][] sourceImagePixelData) {
-        this.sourceImagePixelData = sourceImagePixelData;
+    public void setSourceImagePixelMap(PixelData[][] sourceImagePixelMap) {
+        this.sourceImagePixelMap = sourceImagePixelMap;
     }
 
-    public PixelData[][] getChangedImagePixelData() {
-        return changedImagePixelData;
+    public PixelData[][] getChangedImagePixelMap() {
+        return changedImagePixelMap;
     }
 
-    public void setChangedImagePixelData(PixelData[][] changedImagePixelData) {
-        this.changedImagePixelData = changedImagePixelData;
+    public void setChangedImagePixelMap(PixelData[][] changedImagePixelMap) {
+        this.changedImagePixelMap = changedImagePixelMap;
+    }
+
+    public int getMaxBrightness() {
+        return maxBrightness;
+    }
+
+    public void setMaxBrightness(int maxBrightness) {
+        this.maxBrightness = maxBrightness;
+    }
+
+    public int getMinBrightness() {
+        return minBrightness;
+    }
+
+    public void setMinBrightness(int minBrightness) {
+        this.minBrightness = minBrightness;
+    }
+
+    public int getSourceImageWidth() {
+        return sourceImageWidth;
+    }
+
+    public void setSourceImageWidth(int sourceImageWidth) {
+        this.sourceImageWidth = sourceImageWidth;
+    }
+
+    public int getSourceImageHeight() {
+        return sourceImageHeight;
+    }
+
+    public void setSourceImageHeight(int sourceImageHeight) {
+        this.sourceImageHeight = sourceImageHeight;
+    }
+
+    public int getChangedImageWidth() {
+        return changedImageWidth;
+    }
+
+    public void setChangedImageWidth(int changedImageWidth) {
+        this.changedImageWidth = changedImageWidth;
+    }
+
+    public int getChangedImageHeight() {
+        return changedImageHeight;
+    }
+
+    public void setChangedImageHeight(int changedImageHeight) {
+        this.changedImageHeight = changedImageHeight;
     }
 }
