@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane fx:id="mainContainer" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.hryhoryeu.imagehandler.controllers.Controller">
+   <top>
+      <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="860.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Файл">
+            <items>
+                  <MenuItem fx:id="openImage" mnemonicParsing="false" onAction="#openImage" text="Открыть..." />
+                  <MenuItem mnemonicParsing="false" text="Сохранить как" />
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Вид">
+               <items>
+                  <MenuItem fx:id="showSourceFullSizeImage" mnemonicParsing="false" onAction="#showSourceFullSizeImage" text="Показать исходное изображение" />
+                  <MenuItem fx:id="showChangedFullSizeImage" mnemonicParsing="false" onAction="#showChangedFullSizeImage" text="Показать изменённое изображение" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Гистограмма">
+              <items>
+                  <MenuItem fx:id="buildSourceBarChart" mnemonicParsing="false" onAction="#buildSourceBarChart" text="Гистограмма исходного изображения" />
+                <MenuItem fx:id="buildChangedBarChart" mnemonicParsing="false" onAction="#buildChangedBarChart" text="Гистограмма обработанного изображения" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Поэлементная обработка">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#solarization" text="Соляризация" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="Фильтр">
+              <items>
+                <MenuItem mnemonicParsing="false" text="Action 1" />
+              </items>
+            </Menu>
+        </menus>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <BorderPane.margin>
+            <Insets bottom="5.0" />
+         </BorderPane.margin>
+      </MenuBar>
+   </top>
+   <center>
+      <ImageView fx:id="imageView" fitHeight="549.0" fitWidth="1138.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

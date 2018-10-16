@@ -1,0 +1,15 @@
+#mainContainer {
+    -fx-background-color: #464646;
+}
+
+.menu-bar {
+    -fx-background-color: #464646;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #ffffff;
+}
+
+.context-menu {
+    -fx-background-color: #464646;
+}
