@@ -15,6 +15,15 @@ public class ImageData {
     private int maxBrightness = ConfigParams.Value.MIN;
     private int minBrightness = ConfigParams.Value.MAX;
 
+    private int maxR = ConfigParams.Value.MIN;
+    private int minR = ConfigParams.Value.MAX;
+
+    private int maxG = ConfigParams.Value.MIN;
+    private int minG = ConfigParams.Value.MAX;
+
+    private int maxB = ConfigParams.Value.MIN;
+    private int minB = ConfigParams.Value.MAX;
+
     private int sourceImageWidth;
     private int sourceImageHeight;
 
@@ -109,5 +118,53 @@ public class ImageData {
 
     public void setChangedImageHeight(int changedImageHeight) {
         this.changedImageHeight = changedImageHeight;
+    }
+
+    public int getMaxR() {
+        return maxR;
+    }
+
+    public void setMaxR(int maxR) {
+        this.maxR = maxR;
+    }
+
+    public int getMinR() {
+        return minR;
+    }
+
+    public void setMinR(int minR) {
+        this.minR = minR;
+    }
+
+    public int getMaxG() {
+        return maxG;
+    }
+
+    public void setMaxG(int maxG) {
+        this.maxG = maxG;
+    }
+
+    public int getMinG() {
+        return minG;
+    }
+
+    public void setMinG(int minG) {
+        this.minG = minG;
+    }
+
+    public int getMaxB() {
+        return maxB;
+    }
+
+    public void setMaxB(int maxB) {
+        this.maxB = maxB;
+    }
+
+    public int getMinB() {
+        return minB;
+    }
+
+    public void setMinB(int minB) {
+        this.minB = minB;
     }
 }

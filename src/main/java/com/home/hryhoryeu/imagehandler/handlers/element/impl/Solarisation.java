@@ -26,14 +26,19 @@ public class Solarisation implements IElementHandler {
 
         PixelWriter pixelWriter = writableImage.getPixelWriter();
 
-        double coefficient = (4 / (double)imageManager.getImageData().getMaxBrightness());
+        double coefficientR = (4 / (double)imageManager.getImageData().getMaxR());
+        double coefficientG = (4 / (double)imageManager.getImageData().getMaxG());
+        double coefficientB = (4 / (double)imageManager.getImageData().getMaxB());
         for (int y = ConfigParams.Position.START; y < height; y++) {
             for (int x = ConfigParams.Position.START; x < width; x++) {
-                int brightness = imagePixelMap[x][y].getBrightness();
-                int solarizationBrightness = (int)(coefficient * brightness * (imageManager.getImageData().getMaxBrightness() - brightness));
-                Color colorRGB = Color.rgb(imagePixelMap[x][y].getR(), imagePixelMap[x][y].getG(), imagePixelMap[x][y].getB());
-                Color colorHSB = Color.hsb(colorRGB.getHue(), colorRGB.getSaturation(), (double) solarizationBrightness/255);
-                pixelWriter.setColor(x, y, colorHSB);
+                int R = imagePixelMap[x][y].getR();
+                int G = imagePixelMap[x][y].getG();
+                int B = imagePixelMap[x][y].getB();
+                int solarizationR = (int)(coefficientR * R * (imageManager.getImageData().getMaxR() - R));
+                int solarizationG = (int)(coefficientG * G * (imageManager.getImageData().getMaxG() - G));
+                int solarizationB = (int)(coefficientB * B * (imageManager.getImageData().getMaxB() - B));
+                Color colorRGB = Color.rgb(solarizationR, solarizationG, solarizationB);
+                pixelWriter.setColor(x, y, colorRGB);
             }
         }
         imageManager.setChangedImage(writableImage);

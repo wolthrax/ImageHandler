@@ -77,12 +77,27 @@ public class ImageManagerImpl implements IImageManager {
         PixelData pixelMap[][] = imageData.getChangedImagePixelMap();
         for(int y = 0; y < imageData.getSourceImageHeight(); y++) {
             for(int x = 0; x < imageData.getSourceImageWidth(); x++) {
-                if (imageData.getMaxBrightness() < pixelMap[x][y].getBrightness()) {
+
+                if (imageData.getMaxBrightness() < pixelMap[x][y].getBrightness())
                     imageData.setMaxBrightness(pixelMap[x][y].getBrightness());
-                }
-                if (imageData.getMinBrightness() > pixelMap[x][y].getBrightness()) {
+                if (imageData.getMinBrightness() > pixelMap[x][y].getBrightness())
                     imageData.setMinBrightness(pixelMap[x][y].getBrightness());
-                }
+
+                if (imageData.getMaxR() < pixelMap[x][y].getR())
+                    imageData.setMaxR(pixelMap[x][y].getR());
+                if (imageData.getMinR() > pixelMap[x][y].getR())
+                    imageData.setMinR(pixelMap[x][y].getR());
+
+                if (imageData.getMaxG() < pixelMap[x][y].getG())
+                    imageData.setMaxG(pixelMap[x][y].getG());
+                if (imageData.getMinG() > pixelMap[x][y].getG())
+                    imageData.setMinG(pixelMap[x][y].getG());
+
+                if (imageData.getMaxB() < pixelMap[x][y].getB())
+                    imageData.setMaxB(pixelMap[x][y].getB());
+                if (imageData.getMinB() > pixelMap[x][y].getB())
+                    imageData.setMinB(pixelMap[x][y].getB());
+
             }
         }
     }
