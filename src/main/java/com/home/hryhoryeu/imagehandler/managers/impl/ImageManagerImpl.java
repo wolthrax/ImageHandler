@@ -7,6 +7,7 @@ import com.home.hryhoryeu.imagehandler.managers.IPixelManager;
 import com.home.hryhoryeu.imagehandler.ui.FullSizeImageScene;
 import com.home.hryhoryeu.imagehandler.utils.converters.PixelDataConverter;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class ImageManagerImpl implements IImageManager {
 
@@ -19,8 +20,10 @@ public class ImageManagerImpl implements IImageManager {
     }
 
     @Override
-    public void loadImage(String url) {
+    public void loadImage(String url, ImageView imageView) {
         Image image = new Image(url);
+
+        imageData.setImageView(imageView);
 
         imageData.setSourceImageWidth((int)image.getWidth());
         imageData.setSourceImageHeight((int)image.getHeight());
@@ -28,7 +31,10 @@ public class ImageManagerImpl implements IImageManager {
         imageData.setSourceImage(image);
         imageData.setSourceImagePixelMap(pixelMapBuilder(getImageData().getSourceImage()));
 
+
+
         setChangedImage(image);
+        applyChangedImage(image);
     }
 
     @Override
@@ -37,6 +43,11 @@ public class ImageManagerImpl implements IImageManager {
         imageData.setChangedImageHeight((int)image.getHeight());
 
         imageData.setChangedImage(image);
+
+    }
+
+    @Override
+    public void applyChangedImage(Image image) {
         imageData.setChangedImagePixelMap(pixelMapBuilder(image));
 
         calcBrightValues();

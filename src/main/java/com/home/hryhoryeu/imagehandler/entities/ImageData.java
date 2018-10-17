@@ -2,6 +2,7 @@ package com.home.hryhoryeu.imagehandler.entities;
 
 import com.home.hryhoryeu.imagehandler.config.ConfigParams;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class ImageData {
 
@@ -29,6 +30,8 @@ public class ImageData {
 
     private int changedImageWidth;
     private int changedImageHeight;
+
+    private ImageView imageView;
 
     private ImageData() {
 
@@ -166,5 +169,13 @@ public class ImageData {
 
     public void setMinB(int minB) {
         this.minB = minB;
+    }
+
+    public ImageView getImageView() {
+        return imageView;
+    }
+
+    public void setImageView(ImageView imageView) {
+        this.imageView = imageView;
     }
 }

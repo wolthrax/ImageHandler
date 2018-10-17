@@ -2,7 +2,6 @@ package com.home.hryhoryeu.imagehandler.ui;
 
 import com.home.hryhoryeu.imagehandler.config.ConfigParams;
 import com.home.hryhoryeu.imagehandler.config.Names;
-import com.home.hryhoryeu.imagehandler.entities.PixelData;
 import javafx.scene.Scene;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
