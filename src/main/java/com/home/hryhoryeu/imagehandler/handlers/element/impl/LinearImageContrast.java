@@ -38,27 +38,28 @@ public class LinearImageContrast implements IElementHandler {
                 int R = imagePixelMap[x][y].getR();
                 int G = imagePixelMap[x][y].getG();
                 int B = imagePixelMap[x][y].getB();
-                int br = imagePixelMap[x][y].getBrightness();
 
-//                double G_R = (double) ((paramsDto.getgMax() - paramsDto.getgMin()) *
-//                        ((R - paramsDto.getfMin()) / (paramsDto.getfMax() - paramsDto.getfMin())) + paramsDto.getgMin());
-//                double G_G = (double) ((paramsDto.getgMax() - paramsDto.getgMin()) *
-//                        ((G - paramsDto.getfMin()) / (paramsDto.getfMax() - paramsDto.getfMin())) + paramsDto.getgMin());
-//                double G_B = (double) ((paramsDto.getgMax() - paramsDto.getgMin()) *
-//                        ((B - paramsDto.getfMin()) / (paramsDto.getfMax() - paramsDto.getfMin())) + paramsDto.getgMin());
-//
-//
-//                //Color colorRGB = Color.rgb(G_R, G_G, G_B);
-//                Color color = new Color(G_R/255d, G_G/255d, G_B/255d, 1);
-//                pixelWriter.setColor(x, y, color);
+                double G_R = (double) ((R - paramsDto.getfMin()) / (paramsDto.getfMax() - paramsDto.getfMin()) * (paramsDto.getgMax() - paramsDto.getgMin()) + paramsDto.getgMin());
+                double G_G = (double) ((G - paramsDto.getfMin()) / (paramsDto.getfMax() - paramsDto.getfMin()) * (paramsDto.getgMax() - paramsDto.getgMin()) + paramsDto.getgMin());
+                double G_B = (double) ((B - paramsDto.getfMin()) / (paramsDto.getfMax() - paramsDto.getfMin()) * (paramsDto.getgMax() - paramsDto.getgMin()) + paramsDto.getgMin());
 
-                double G_BR = (double) ((paramsDto.getgMax() - paramsDto.getgMin()) *
-                        (br - paramsDto.getfMin()) / (paramsDto.getfMax() - paramsDto.getfMin()) + paramsDto.getgMin());
+                if (G_R < ConfigParams.Value.MIN)
+                    G_R = ConfigParams.Value.MIN;
+                if (G_R > ConfigParams.Value.MAX)
+                    G_R = ConfigParams.Value.MAX;
 
-                Color colorRGB = Color.rgb(R, G, B);
-                Color colorHSB = Color.hsb(colorRGB.getHue(), colorRGB.getSaturation(), (double) G_BR/255d);
-                pixelWriter.setColor(x, y, colorHSB);
+                if (G_G < ConfigParams.Value.MIN)
+                    G_G = ConfigParams.Value.MIN;
+                if (G_G > ConfigParams.Value.MAX)
+                    G_G = ConfigParams.Value.MAX;
 
+                if (G_B < ConfigParams.Value.MIN)
+                    G_B = ConfigParams.Value.MIN;
+                if (G_B > ConfigParams.Value.MAX)
+                    G_B = ConfigParams.Value.MAX;
+
+                Color color = new Color(G_R/255, G_G/255, G_B/255, 1);
+                pixelWriter.setColor(x, y, color);
             }
         }
         imageManager.setChangedImage(writableImage);

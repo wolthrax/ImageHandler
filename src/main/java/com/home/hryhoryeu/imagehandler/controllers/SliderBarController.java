@@ -6,12 +6,18 @@ import com.home.hryhoryeu.imagehandler.managers.IHandleManager;
 import com.home.hryhoryeu.imagehandler.managers.IImageManager;
 import com.home.hryhoryeu.imagehandler.managers.impl.HandleManagerImpl;
 import com.home.hryhoryeu.imagehandler.managers.impl.ImageManagerImpl;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class SliderBarController {
+
+    @FXML
+    private Button applyButton;
 
     @FXML
     private Label gMaxValue;
@@ -47,5 +53,11 @@ public class SliderBarController {
                 (int)fMin.getValue(),
                 (int)fMax.getValue())));
         imageManager.getImageData().getImageView().setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void applyLinearImageContrast(ActionEvent actionEvent) {
+        imageManager.applyChangedImage(imageManager.getImageData().getChangedImage());
+        Stage stage = (Stage) applyButton.getScene().getWindow();
+        stage.close();
     }
 }

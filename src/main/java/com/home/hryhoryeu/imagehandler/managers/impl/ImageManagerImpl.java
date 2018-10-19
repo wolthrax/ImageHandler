@@ -31,25 +31,20 @@ public class ImageManagerImpl implements IImageManager {
         imageData.setSourceImage(image);
         imageData.setSourceImagePixelMap(pixelMapBuilder(getImageData().getSourceImage()));
 
-
-
         setChangedImage(image);
         applyChangedImage(image);
     }
 
     @Override
     public void setChangedImage(Image image) {
-        imageData.setChangedImageWidth((int)image.getWidth());
-        imageData.setChangedImageHeight((int)image.getHeight());
-
         imageData.setChangedImage(image);
-
     }
 
     @Override
     public void applyChangedImage(Image image) {
+        imageData.setChangedImageWidth((int)image.getWidth());
+        imageData.setChangedImageHeight((int)image.getHeight());
         imageData.setChangedImagePixelMap(pixelMapBuilder(image));
-
         calcBrightValues();
     }
 

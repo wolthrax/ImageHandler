@@ -42,5 +42,6 @@ public class Solarisation implements IElementHandler {
             }
         }
         imageManager.setChangedImage(writableImage);
+        imageManager.applyChangedImage(writableImage);
     }
 }

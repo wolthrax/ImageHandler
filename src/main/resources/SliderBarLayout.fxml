@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="260.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.hryhoryeu.imagehandler.controllers.SliderBarController">
+<AnchorPane prefHeight="278.0" prefWidth="330.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.hryhoryeu.imagehandler.controllers.SliderBarController">
    <children>
       <Slider fx:id="gMax" layoutX="86.0" layoutY="50.0" majorTickUnit="1.0" max="255.0" minorTickCount="1" onMouseDragged="#linearImageContrast" prefHeight="14.0" prefWidth="201.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="43.0" />
       <Slider fx:id="gMin" layoutX="86.0" layoutY="100.0" majorTickUnit="1.0" max="255.0" minorTickCount="1" onMouseDragged="#linearImageContrast" prefHeight="14.0" prefWidth="201.0" AnchorPane.leftAnchor="86.0" AnchorPane.rightAnchor="43.0" />
@@ -19,5 +19,6 @@
       <Label fx:id="gMinValue" layoutX="287.0" layoutY="99.0" text="0" AnchorPane.rightAnchor="15.0" />
       <Label fx:id="fMaxValue" layoutX="287.0" layoutY="147.0" text="0" AnchorPane.rightAnchor="15.0" />
       <Label fx:id="fMinValue" layoutX="287.0" layoutY="193.0" text="0" AnchorPane.rightAnchor="15.0" />
+      <Button fx:id="applyButton" layoutX="106.0" layoutY="231.0" mnemonicParsing="false" onAction="#applyLinearImageContrast" prefHeight="25.0" prefWidth="119.0" text="Применить" />
    </children>
 </AnchorPane>
