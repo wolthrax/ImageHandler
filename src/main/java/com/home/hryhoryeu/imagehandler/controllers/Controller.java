@@ -3,6 +3,7 @@ package com.home.hryhoryeu.imagehandler.controllers;
 import com.home.hryhoryeu.imagehandler.dto.ParamsDto;
 import com.home.hryhoryeu.imagehandler.handlers.element.impl.LinearImageContrast;
 import com.home.hryhoryeu.imagehandler.handlers.element.impl.Solarisation;
+import com.home.hryhoryeu.imagehandler.handlers.filters.impl.Emboss;
 import com.home.hryhoryeu.imagehandler.managers.IBarChartManager;
 import com.home.hryhoryeu.imagehandler.managers.IHandleManager;
 import com.home.hryhoryeu.imagehandler.managers.IImageManager;
@@ -69,4 +70,10 @@ public class Controller {
         SliderBar sliderBar = new SliderBar();
         sliderBar.showSliderBar();
     }
+
+    // Filters actions
+    public void emboss(ActionEvent actionEvent) {
+        handleManager.setFilter(new Emboss());
+    }
+
 }
