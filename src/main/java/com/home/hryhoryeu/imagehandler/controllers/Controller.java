@@ -74,6 +74,7 @@ public class Controller {
     // Filters actions
     public void emboss(ActionEvent actionEvent) {
         handleManager.setFilter(new Emboss());
+        imageView.setImage(imageManager.getImageData().getChangedImage());
     }
 
 }
