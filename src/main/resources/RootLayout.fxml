@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="mainContainer" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.hryhoryeu.imagehandler.controllers.Controller">
+<BorderPane fx:id="mainContainer" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.hryhoryeu.imagehandler.controllers.Controller">
    <top>
       <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="860.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
         <menus>
@@ -18,6 +18,11 @@
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Правка">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="Назад" />
+              </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Вид">
                <items>
                   <MenuItem fx:id="showSourceFullSizeImage" mnemonicParsing="false" onAction="#showSourceFullSizeImage" text="Показать исходное изображение" />
@@ -38,7 +43,13 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Фильтр">
               <items>
-                <MenuItem fx:id="emboss" mnemonicParsing="false" onAction="#emboss" text="Эффект тиснения" />
+                  <Menu mnemonicParsing="false" text="Эффект тиснения">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#emboss3X3" text="3X3" />
+                      <MenuItem fx:id="emboss" mnemonicParsing="false" onAction="#emboss5X5" text="5X5" />
+                        <MenuItem mnemonicParsing="false" onAction="#emboss7X7" text="7X7" />
+                    </items>
+                  </Menu>
               </items>
             </Menu>
         </menus>
