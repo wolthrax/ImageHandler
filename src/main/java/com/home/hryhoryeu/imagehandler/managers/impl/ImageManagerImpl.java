@@ -3,7 +3,6 @@ package com.home.hryhoryeu.imagehandler.managers.impl;
 import com.home.hryhoryeu.imagehandler.entities.ImageData;
 import com.home.hryhoryeu.imagehandler.entities.PixelData;
 import com.home.hryhoryeu.imagehandler.managers.IImageManager;
-import com.home.hryhoryeu.imagehandler.managers.IPixelManager;
 import com.home.hryhoryeu.imagehandler.ui.FullSizeImageScene;
 import com.home.hryhoryeu.imagehandler.utils.converters.PixelDataConverter;
 import javafx.scene.image.Image;
@@ -31,6 +30,7 @@ public class ImageManagerImpl implements IImageManager {
         imageData.setSourceImage(image);
         imageData.setSourceImagePixelMap(pixelMapBuilder(getImageData().getSourceImage()));
 
+        imageData.getImageStack().clear();
         setChangedImage(image);
         applyChangedImage(image);
     }
@@ -42,12 +42,12 @@ public class ImageManagerImpl implements IImageManager {
 
     @Override
     public void applyChangedImage(Image image) {
+        imageData.getImageStack().push(imageData.getChangedImage());
         imageData.setChangedImageWidth((int)image.getWidth());
         imageData.setChangedImageHeight((int)image.getHeight());
         imageData.setChangedImagePixelMap(pixelMapBuilder(image));
         calcBrightValues();
     }
-
 
     @Override
     public void saveChangedImage() {
@@ -57,6 +57,25 @@ public class ImageManagerImpl implements IImageManager {
     @Override
     public ImageData getImageData() {
         return imageData;
+    }
+
+    @Override
+    public Image back() {
+        Image image;
+        if (imageData.getImageStack().empty())
+            image = imageData.getSourceImage();
+        else image = imageData.getImageStack().pop();
+
+        setChangedImage(image);
+        recoveryImage(image);
+        return image;
+    }
+
+    private void recoveryImage(Image image) {
+        imageData.setChangedImageWidth((int)image.getWidth());
+        imageData.setChangedImageHeight((int)image.getHeight());
+        imageData.setChangedImagePixelMap(pixelMapBuilder(image));
+        calcBrightValues();
     }
 
     @Override
@@ -103,7 +122,6 @@ public class ImageManagerImpl implements IImageManager {
                     imageData.setMaxB(pixelMap[x][y].getB());
                 if (imageData.getMinB() > pixelMap[x][y].getB())
                     imageData.setMinB(pixelMap[x][y].getB());
-
             }
         }
     }

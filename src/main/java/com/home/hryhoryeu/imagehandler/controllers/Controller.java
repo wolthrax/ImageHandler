@@ -2,6 +2,7 @@ package com.home.hryhoryeu.imagehandler.controllers;
 
 import com.home.hryhoryeu.imagehandler.entities.enums.Matrix;
 import com.home.hryhoryeu.imagehandler.handlers.element.impl.Solarisation;
+import com.home.hryhoryeu.imagehandler.handlers.filters.impl.BinaryImage;
 import com.home.hryhoryeu.imagehandler.handlers.filters.impl.Emboss;
 import com.home.hryhoryeu.imagehandler.managers.IBarChartManager;
 import com.home.hryhoryeu.imagehandler.managers.IHandleManager;
@@ -57,6 +58,10 @@ public class Controller {
         imageManager.showChangedFullSizeImage();
     }
 
+    public void backImage(ActionEvent actionEvent) {
+        imageView.setImage(imageManager.back());
+    }
+
     public void solarization(ActionEvent actionEvent) {
         handleManager.setElementHandler(new Solarisation());
         imageView.setImage(imageManager.getImageData().getChangedImage());
@@ -80,6 +85,16 @@ public class Controller {
 
     public void emboss7X7(ActionEvent actionEvent) {
         handleManager.setFilter(new Emboss(Matrix.MATRIX_7X7));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void binaryImage2X2(ActionEvent actionEvent) {
+        handleManager.setFilter(new BinaryImage(Matrix.MATRIX_2X2));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void binaryImage4X4(ActionEvent actionEvent) {
+        handleManager.setFilter(new BinaryImage(Matrix.MATRIX_4X4));
         imageView.setImage(imageManager.getImageData().getChangedImage());
     }
 

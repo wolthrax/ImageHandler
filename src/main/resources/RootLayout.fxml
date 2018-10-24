@@ -20,7 +20,7 @@
           </Menu>
             <Menu mnemonicParsing="false" text="Правка">
               <items>
-                  <MenuItem mnemonicParsing="false" text="Назад" />
+                  <MenuItem mnemonicParsing="false" onAction="#backImage" text="Назад" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Вид">
@@ -48,6 +48,12 @@
                       <MenuItem mnemonicParsing="false" onAction="#emboss3X3" text="3X3" />
                       <MenuItem fx:id="emboss" mnemonicParsing="false" onAction="#emboss5X5" text="5X5" />
                         <MenuItem mnemonicParsing="false" onAction="#emboss7X7" text="7X7" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Бинарное &quot;псевдополутоновое изображение&quot;">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#binaryImage2X2" text="2X2" />
+                        <MenuItem mnemonicParsing="false" onAction="#binaryImage4X4" text="4X4" />
                     </items>
                   </Menu>
               </items>

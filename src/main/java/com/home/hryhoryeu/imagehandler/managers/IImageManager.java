@@ -11,6 +11,7 @@ public interface IImageManager {
     void applyChangedImage(Image image);
     void saveChangedImage();
     ImageData getImageData();
+    Image back();
 
     void showSourceFullSizeImage();
     void showChangedFullSizeImage();

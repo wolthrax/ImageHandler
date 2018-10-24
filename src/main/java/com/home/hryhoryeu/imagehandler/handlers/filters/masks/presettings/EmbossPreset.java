@@ -9,11 +9,6 @@ public class EmbossPreset implements Preset {
                 {0, 1, 0},
                 {0, 0, -1}
         };
-//        return new double[][]{
-//                {-1, -1, -1},
-//                {-1, 8, -1},
-//                {-1, -1, -1}
-//        };
     }
 
     @Override
@@ -25,13 +20,6 @@ public class EmbossPreset implements Preset {
                 {0, 0, 0, -1, 0},
                 {0, 0, 0, 0, -1}
         };
-//        return new double[][]{
-//                {-1, -1, -1, -1, -1},
-//                {-1, -2, -2, -2, -1},
-//                {-1, -2, 32, -2, -1},
-//                {-1, -2, -2, -2, -1},
-//                {-1, -1, -1, -1, -1}
-//        };
     }
 
     @Override

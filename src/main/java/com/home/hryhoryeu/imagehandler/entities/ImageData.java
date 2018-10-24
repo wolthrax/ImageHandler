@@ -4,6 +4,8 @@ import com.home.hryhoryeu.imagehandler.config.ConfigParams;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.Stack;
+
 public class ImageData {
 
     private static ImageData instance;
@@ -30,6 +32,8 @@ public class ImageData {
 
     private int changedImageWidth;
     private int changedImageHeight;
+
+    private Stack<Image> imageStack = new Stack<>();
 
     private ImageView imageView;
 
@@ -177,5 +181,13 @@ public class ImageData {
 
     public void setImageView(ImageView imageView) {
         this.imageView = imageView;
+    }
+
+    public Stack<Image> getImageStack() {
+        return imageStack;
+    }
+
+    public void setImageStack(Stack<Image> imageStack) {
+        this.imageStack = imageStack;
     }
 }
