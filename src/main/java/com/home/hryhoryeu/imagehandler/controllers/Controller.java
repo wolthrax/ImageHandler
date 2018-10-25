@@ -4,6 +4,9 @@ import com.home.hryhoryeu.imagehandler.entities.enums.Matrix;
 import com.home.hryhoryeu.imagehandler.handlers.element.impl.Solarisation;
 import com.home.hryhoryeu.imagehandler.handlers.filters.impl.BinaryImage;
 import com.home.hryhoryeu.imagehandler.handlers.filters.impl.Emboss;
+import com.home.hryhoryeu.imagehandler.handlers.filters.impl.MaxFilter;
+import com.home.hryhoryeu.imagehandler.handlers.filters.impl.MinFilter;
+import com.home.hryhoryeu.imagehandler.handlers.filters.impl.MinMaxFilter;
 import com.home.hryhoryeu.imagehandler.managers.IBarChartManager;
 import com.home.hryhoryeu.imagehandler.managers.IHandleManager;
 import com.home.hryhoryeu.imagehandler.managers.IImageManager;
@@ -98,4 +101,48 @@ public class Controller {
         imageView.setImage(imageManager.getImageData().getChangedImage());
     }
 
+    public void minFilter3X3(ActionEvent actionEvent) {
+        handleManager.setFilter(new MinFilter(Matrix.MATRIX_3X3));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void minFilter5X5(ActionEvent actionEvent) {
+        handleManager.setFilter(new MinFilter(Matrix.MATRIX_5X5));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void minFilter7X7(ActionEvent actionEvent) {
+        handleManager.setFilter(new MinFilter(Matrix.MATRIX_7X7));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void maxFilter3X3(ActionEvent actionEvent) {
+        handleManager.setFilter(new MaxFilter(Matrix.MATRIX_3X3));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void maxFilter5X5(ActionEvent actionEvent) {
+        handleManager.setFilter(new MaxFilter(Matrix.MATRIX_5X5));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void maxFilter7X7(ActionEvent actionEvent) {
+        handleManager.setFilter(new MaxFilter(Matrix.MATRIX_7X7));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void minMaxFilter3X3(ActionEvent actionEvent) {
+        handleManager.setFilter(new MinMaxFilter(Matrix.MATRIX_3X3));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void minMaxFilter5X5(ActionEvent actionEvent) {
+        handleManager.setFilter(new MinMaxFilter(Matrix.MATRIX_5X5));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
+
+    public void minMaxFilter7X7(ActionEvent actionEvent) {
+        handleManager.setFilter(new MinMaxFilter(Matrix.MATRIX_7X7));
+        imageView.setImage(imageManager.getImageData().getChangedImage());
+    }
 }

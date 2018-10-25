@@ -1,12 +1,10 @@
 package com.home.hryhoryeu.imagehandler.handlers.filters.impl;
 
 import com.home.hryhoryeu.imagehandler.config.ConfigParams;
-import com.home.hryhoryeu.imagehandler.entities.enums.Matrix;
 import com.home.hryhoryeu.imagehandler.entities.PixelData;
+import com.home.hryhoryeu.imagehandler.entities.enums.Matrix;
 import com.home.hryhoryeu.imagehandler.handlers.filters.IFilter;
-import com.home.hryhoryeu.imagehandler.handlers.filters.masks.presettings.BinaryImagePreset;
 import com.home.hryhoryeu.imagehandler.handlers.filters.masks.presettings.EmbossPreset;
-import com.home.hryhoryeu.imagehandler.handlers.filters.masks.types.Mask2X2;
 import com.home.hryhoryeu.imagehandler.handlers.filters.masks.types.Mask3X3;
 import com.home.hryhoryeu.imagehandler.handlers.filters.masks.types.Mask5X5;
 import com.home.hryhoryeu.imagehandler.handlers.filters.masks.types.Mask7X7;

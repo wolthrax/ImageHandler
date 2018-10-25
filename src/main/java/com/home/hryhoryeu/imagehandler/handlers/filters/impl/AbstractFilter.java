@@ -1,16 +1,14 @@
 package com.home.hryhoryeu.imagehandler.handlers.filters.impl;
 
+import com.home.hryhoryeu.imagehandler.entities.PixelData;
 import com.home.hryhoryeu.imagehandler.entities.enums.Matrix;
 import com.home.hryhoryeu.imagehandler.handlers.filters.IFilter;
 import com.home.hryhoryeu.imagehandler.handlers.filters.masks.Mask;
-import com.home.hryhoryeu.imagehandler.handlers.filters.masks.presettings.BinaryImagePreset;
-import com.home.hryhoryeu.imagehandler.handlers.filters.masks.presettings.EmbossPreset;
-import com.home.hryhoryeu.imagehandler.handlers.filters.masks.types.Mask2X2;
-import com.home.hryhoryeu.imagehandler.handlers.filters.masks.types.Mask3X3;
-import com.home.hryhoryeu.imagehandler.handlers.filters.masks.types.Mask5X5;
-import com.home.hryhoryeu.imagehandler.handlers.filters.masks.types.Mask7X7;
 import com.home.hryhoryeu.imagehandler.managers.IImageManager;
 import com.home.hryhoryeu.imagehandler.managers.impl.ImageManagerImpl;
+
+import java.util.Comparator;
+import java.util.List;
 
 public abstract class AbstractFilter implements IFilter {
 
@@ -25,5 +23,18 @@ public abstract class AbstractFilter implements IFilter {
 
     @Override
     public abstract void handle();
+
+    protected PixelData getMinPixelData(List<PixelData> neighboringPixels) {
+        return sortPixelValues(neighboringPixels).get(0);
+    }
+
+    protected PixelData getMaxPixelData(List<PixelData> neighboringPixels) {
+        return sortPixelValues(neighboringPixels).get(neighboringPixels.size()-1);
+    }
+
+    private List<PixelData> sortPixelValues(List<PixelData> neighboringPixels) {
+        neighboringPixels.sort(Comparator.comparingDouble(pixelData -> (double) (pixelData.getR() + pixelData.getG() + pixelData.getB()) / 3));
+        return neighboringPixels;
+    }
 
 }

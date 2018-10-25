@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="mainContainer" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.hryhoryeu.imagehandler.controllers.Controller">
+<BorderPane fx:id="mainContainer" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.hryhoryeu.imagehandler.controllers.Controller">
    <top>
       <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="860.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
         <menus>
@@ -55,6 +55,27 @@
                       <MenuItem mnemonicParsing="false" onAction="#binaryImage2X2" text="2X2" />
                         <MenuItem mnemonicParsing="false" onAction="#binaryImage4X4" text="4X4" />
                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Min фильтр">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#minFilter3X3" text="3X3" />
+                        <MenuItem mnemonicParsing="false" onAction="#minFilter5X5" text="5X5" />
+                        <MenuItem mnemonicParsing="false" onAction="#minFilter7X7" text="7X7" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Max фильтр">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#maxFilter3X3" text="3X3" />
+                        <MenuItem mnemonicParsing="false" onAction="#maxFilter5X5" text="5X5" />
+                        <MenuItem mnemonicParsing="false" onAction="#maxFilter7X7" text="7X7" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Min-Max фильтр">
+                     <items>
+                        <MenuItem mnemonicParsing="false" onAction="#minMaxFilter3X3" text="3X3" />
+                        <MenuItem mnemonicParsing="false" onAction="#minMaxFilter5X5" text="5X5" />
+                        <MenuItem mnemonicParsing="false" onAction="#minMaxFilter7X7" text="7X7" />
+                     </items>
                   </Menu>
               </items>
             </Menu>
