@@ -5,8 +5,20 @@ import com.home.hryhoryeu.imagehandler.entities.PixelData;
 import com.home.hryhoryeu.imagehandler.managers.IImageManager;
 import com.home.hryhoryeu.imagehandler.ui.FullSizeImageScene;
 import com.home.hryhoryeu.imagehandler.utils.converters.PixelDataConverter;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.PixelFormat;
+import javafx.scene.image.PixelReader;
+import javafx.scene.image.WritablePixelFormat;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class ImageManagerImpl implements IImageManager {
 
@@ -51,7 +63,16 @@ public class ImageManagerImpl implements IImageManager {
 
     @Override
     public void saveChangedImage() {
-        //TODO Save image on disk
+        // TODO temp. refactoring
+        final FileChooser fileChooser = new FileChooser();
+        File file = fileChooser.showSaveDialog(new Stage());
+
+        try {
+            ImageIO.write(SwingFXUtils.fromFXImage(imageData.getChangedImage(), null),
+                    "jpeg", file);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

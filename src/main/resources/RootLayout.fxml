@@ -7,14 +7,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="mainContainer" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.hryhoryeu.imagehandler.controllers.Controller">
+<BorderPane fx:id="mainContainer" stylesheets="@css/style.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.home.hryhoryeu.imagehandler.controllers.Controller">
    <top>
       <MenuBar fx:id="menuBar" prefHeight="25.0" prefWidth="860.0" stylesheets="@css/style.css" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Файл">
             <items>
                   <MenuItem fx:id="openImage" mnemonicParsing="false" onAction="#openImage" text="Открыть..." />
-                  <MenuItem mnemonicParsing="false" text="Сохранить как" />
+                  <MenuItem mnemonicParsing="false" onAction="#saveChangedImage" text="Сохранить как" />
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>

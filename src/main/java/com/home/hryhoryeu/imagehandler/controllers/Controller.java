@@ -145,4 +145,8 @@ public class Controller {
         handleManager.setFilter(new MinMaxFilter(Matrix.MATRIX_7X7));
         imageView.setImage(imageManager.getImageData().getChangedImage());
     }
+
+    public void saveChangedImage(ActionEvent actionEvent) {
+        imageManager.saveChangedImage();
+    }
 }

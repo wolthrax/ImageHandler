@@ -39,9 +39,15 @@ public class LinearImageContrast implements IElementHandler {
                 int G = imagePixelMap[x][y].getG();
                 int B = imagePixelMap[x][y].getB();
 
-                double G_R = (double) ((R - paramsDto.getfMin()) / (paramsDto.getfMax() - paramsDto.getfMin()) * (paramsDto.getgMax() - paramsDto.getgMin()) + paramsDto.getgMin());
-                double G_G = (double) ((G - paramsDto.getfMin()) / (paramsDto.getfMax() - paramsDto.getfMin()) * (paramsDto.getgMax() - paramsDto.getgMin()) + paramsDto.getgMin());
-                double G_B = (double) ((B - paramsDto.getfMin()) / (paramsDto.getfMax() - paramsDto.getfMin()) * (paramsDto.getgMax() - paramsDto.getgMin()) + paramsDto.getgMin());
+                double G_R = (double) ((R - paramsDto.getfMin()) /
+                        (paramsDto.getfMax() - paramsDto.getfMin()) *
+                        (paramsDto.getgMax() - paramsDto.getgMin()) + paramsDto.getgMin());
+                double G_G = (double) ((G - paramsDto.getfMin())
+                        / (paramsDto.getfMax() - paramsDto.getfMin()) *
+                        (paramsDto.getgMax() - paramsDto.getgMin()) + paramsDto.getgMin());
+                double G_B = (double) ((B - paramsDto.getfMin()) /
+                        (paramsDto.getfMax() - paramsDto.getfMin()) *
+                        (paramsDto.getgMax() - paramsDto.getgMin()) + paramsDto.getgMin());
 
                 if (G_R < ConfigParams.Value.MIN)
                     G_R = ConfigParams.Value.MIN;
